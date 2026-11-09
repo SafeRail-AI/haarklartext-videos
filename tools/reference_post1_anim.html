@@ -1,0 +1,232 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>
+@font-face{font-family:PF;src:url(fonts/Playfair.ttf);font-style:normal;font-weight:400 900}
+@font-face{font-family:PF;src:url(fonts/Playfair-Italic.ttf);font-style:italic;font-weight:400 900}
+html,body{margin:0;padding:0;background:#F6F4F0}
+#stage{position:relative;width:1080px;height:1920px;overflow:hidden;background:#F6F4F0;font-family:Inter,sans-serif;color:#0B0B0B}
+.abs{position:absolute;left:0;top:0}
+.pf{font-family:PF,serif}
+.c{width:1080px;text-align:center}
+#grain{position:absolute;left:0;top:0;width:1080px;height:1920px;background:url(grain.png);background-size:540px 960px;pointer-events:none;z-index:50;mix-blend-mode:multiply}
+#inv{position:absolute;inset:0;background:#0B0B0B;z-index:1;opacity:0}
+.layer{position:absolute;inset:0;z-index:5}
+#subs{position:absolute;left:80px;width:838px;top:1350px;text-align:center;z-index:30;font-size:60px;line-height:1.15;font-weight:500;letter-spacing:-0.01em}
+#subs span{display:inline-block;margin:0 9px}
+#subs span.on{font-weight:800;text-decoration:underline;text-decoration-color:#B08D57;text-decoration-thickness:6px;text-underline-offset:10px}
+.chip{display:inline-block;padding:10px 26px;border:3px solid currentColor;border-radius:999px;font-size:34px;font-weight:600;letter-spacing:.08em}
+</style></head>
+<body><div id="stage">
+<div id="inv"></div>
+<svg id="strands" class="abs" width="1080" height="1920" style="z-index:2"></svg>
+
+<!-- timeline -->
+<div id="tl" class="layer" style="z-index:20">
+  <svg class="abs" width="1080" height="400">
+    <line x1="160" y1="300" x2="860" y2="300" stroke="#0B0B0B" stroke-opacity=".18" stroke-width="4"/>
+    <line id="tlfill" x1="160" y1="300" x2="160" y2="300" stroke="#B08D57" stroke-width="6" stroke-linecap="round"/>
+    <circle id="n0" cx="160" cy="300" r="14" fill="#F6F4F0" stroke="#0B0B0B" stroke-width="4"/>
+    <circle id="n1" cx="510" cy="300" r="14" fill="#F6F4F0" stroke="#0B0B0B" stroke-width="4"/>
+    <circle id="n2" cx="860" cy="300" r="14" fill="#F6F4F0" stroke="#0B0B0B" stroke-width="4"/>
+  </svg>
+  <div class="abs" style="top:340px;left:60px;width:200px;text-align:center;font-size:30px;font-weight:600" id="l0">TAG 1</div>
+  <div class="abs" style="top:340px;left:410px;width:200px;text-align:center;font-size:30px;font-weight:600" id="l1">WOCHE 1</div>
+  <div class="abs" style="top:340px;left:760px;width:200px;text-align:center;font-size:30px;font-weight:600" id="l2">MONAT 1</div>
+</div>
+
+<!-- S0 hook -->
+<div id="s0" class="layer">
+  <div id="h30" class="abs c pf" style="top:470px;font-size:330px;font-weight:600;line-height:1">30</div>
+  <div id="htage" class="abs c pf" style="top:830px;font-size:120px;font-weight:500;line-height:1">Tage</div>
+  <div id="hros" class="abs c pf" style="top:975px;font-size:108px;font-style:italic;font-weight:500;color:#0B0B0B">Rosmarinwasser</div>
+  <div id="hq" class="abs c" style="top:1150px;font-size:62px;font-weight:700;letter-spacing:-0.01em">Was passiert <span id="hwirk" style="display:inline-block">wirklich?</span></div>
+  <svg id="sprig" class="abs" width="1080" height="500" style="top:60px">
+    <path id="sp0" d="M540 380 C 545 300, 560 220, 600 120" fill="none" stroke="#B08D57" stroke-width="6" stroke-linecap="round"/>
+    <g id="leaves" fill="none" stroke="#B08D57" stroke-width="5" stroke-linecap="round"></g>
+  </svg>
+</div>
+
+<!-- S1 day 1 -->
+<div id="s1" class="layer">
+  <div id="s1big" class="abs c pf" style="top:470px;font-size:200px;font-weight:600;line-height:1">Tag <i>1</i></div>
+  <svg id="head" class="abs" width="1080" height="700" style="top:700px;transform:scale(.78);transform-origin:540px 0">
+    <path id="headp" d="M360 640 C 360 560, 330 520, 330 440 C 330 300, 430 200, 560 200 C 690 200, 770 290, 770 410 C 770 470, 800 500, 800 520 C 800 540, 775 545, 770 555 C 775 575, 765 590, 770 610 C 760 640, 700 640, 690 640 L 690 660" fill="none" stroke="#0B0B0B" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+    <path id="hairp" d="M320 450 C 300 300, 400 170, 560 175 C 700 180, 790 270, 785 400" fill="none" stroke="#0B0B0B" stroke-width="7" stroke-linecap="round"/>
+    <g id="fresh" fill="none" stroke="#B08D57" stroke-width="5" stroke-linecap="round"></g>
+  </svg>
+  <div id="s1cap" class="abs c" style="top:1240px"><span class="chip">FRISCHEGEFÜHL</span></div>
+</div>
+
+<!-- S2 week 1 -->
+<div id="s2" class="layer">
+  <div id="s2big" class="abs c pf" style="top:470px;font-size:200px;font-weight:600;line-height:1">Woche <i>1</i></div>
+  <svg id="grow" class="abs" width="1080" height="640" style="top:650px">
+    <rect x="150" y="470" width="780" height="10" fill="#0B0B0B" opacity=".15"/>
+    <path d="M500 520 C 500 480, 580 480, 580 520" fill="none" stroke="#0B0B0B" stroke-width="6"/>
+    <line id="shaft" x1="540" y1="500" x2="540" y2="500" stroke="#0B0B0B" stroke-width="10" stroke-linecap="round"/>
+    <g id="ruler" stroke="#0B0B0B" stroke-width="3"></g>
+  </svg>
+  <div id="s2cnt" class="abs" style="top:1100px;left:665px;font-size:64px;font-weight:700">+0,0 cm</div>
+  <div id="s2rate" class="abs c pf" style="top:1225px;font-size:76px;font-style:italic;font-weight:600;color:#B08D57">≈ 1 cm pro Monat</div>
+</div>
+
+<!-- S3 month 1 / Haken -->
+<div id="s3" class="layer">
+  <div id="s3big" class="abs c pf" style="top:470px;font-size:200px;font-weight:600;line-height:1">Monat <i>1</i></div>
+  <div id="s3hook" class="abs c pf" style="top:760px;font-size:150px;font-style:italic;font-weight:600;line-height:1">der Haken.</div>
+</div>
+
+<!-- S4 study (inverted first) -->
+<div id="s4" class="layer">
+  <div id="s4lab" class="abs c" style="top:470px"><span class="chip" style="color:#B08D57">STUDIE · 2015</span></div>
+  <div id="s4oel" class="abs c pf" style="top:600px;font-size:140px;font-weight:600;line-height:1.05">Rosmarin<i>öl</i></div>
+  <div id="s4wasW" class="abs c" style="top:800px">
+    <div class="pf" style="display:inline-block;position:relative;font-size:100px;font-style:italic;font-weight:500;line-height:1.1">
+      <span id="s4nicht" style="font-family:Inter;font-style:normal;font-weight:600;font-size:48px;display:block;letter-spacing:.06em">NICHT</span>
+      <span id="s4was">Rosmarinwasser</span>
+      <svg class="abs" width="720" height="140" style="left:-20px;top:60px;overflow:visible"><line id="strike" x1="0" y1="70" x2="0" y2="70" stroke="#B08D57" stroke-width="10" stroke-linecap="round"/></svg>
+    </div>
+  </div>
+  <!-- chart -->
+  <div id="chart" class="abs" style="left:0;top:0;width:1080px;height:1920px">
+    <div class="abs" style="top:760px;left:200px;width:260px;text-align:center;font-size:40px;font-weight:600">3 Monate</div>
+    <div class="abs" style="top:760px;left:620px;width:260px;text-align:center;font-size:40px;font-weight:600">6 Monate</div>
+    <div class="abs" style="left:160px;top:1230px;width:760px;height:5px;background:#0B0B0B"></div>
+    <div id="bar3" class="abs" style="left:260px;width:140px;background:#0B0B0B;opacity:.25"></div>
+    <div id="bar6" class="abs" style="left:680px;width:140px;background:#B08D57"></div>
+    <div id="b3t" class="abs" style="top:1110px;left:200px;width:260px;text-align:center;font-size:44px;font-weight:700">kaum etwas</div>
+    <div id="b6t" class="abs" style="left:620px;width:260px;text-align:center;font-size:44px;font-weight:700;color:#B08D57">erst jetzt</div>
+    <div class="abs c" style="top:1250px;font-size:30px;opacity:.6">Studie mit Rosmarinöl, nicht Wasser</div>
+  </div>
+</div>
+
+<!-- S5 verdict -->
+<div id="s5" class="layer">
+  <div id="v1" class="abs" style="top:560px;left:120px;width:800px">
+    <svg width="120" height="120" class="abs" style="left:0;top:0"><path id="chk" d="M20 62 L 50 92 L 104 28" fill="none" stroke="#B08D57" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <div class="pf abs" style="left:150px;top:-6px;font-size:96px;font-weight:600;line-height:1.05">schönes<br><i>Ritual</i></div>
+  </div>
+  <div id="v2" class="abs" style="top:900px;left:120px;width:800px">
+    <svg width="120" height="120" class="abs" style="left:0;top:0"><path id="crs1" d="M28 28 L 96 96" fill="none" stroke="#0B0B0B" stroke-width="12" stroke-linecap="round"/><path id="crs2" d="M96 28 L 28 96" fill="none" stroke="#0B0B0B" stroke-width="12" stroke-linecap="round"/></svg>
+    <div class="pf abs" style="left:150px;top:-6px;font-size:96px;font-weight:600;line-height:1.05">Wunder in<br><i>30 Tagen</i></div>
+  </div>
+</div>
+
+<!-- S6 CTA -->
+<div id="s6" class="layer">
+  <svg class="abs" width="1080" height="400" style="top:560px"><path id="bub" d="M380 80 H700 Q760 80 760 140 V260 Q760 320 700 320 H520 L440 380 L455 320 H380 Q320 320 320 260 V140 Q320 80 380 80 Z" fill="none" stroke="#B08D57" stroke-width="8" stroke-linejoin="round"/></svg>
+  <div id="ctat" class="abs c pf" style="top:1000px;font-size:120px;font-weight:600;line-height:1.05">Schon<br><i>probiert?</i></div>
+</div>
+
+<!-- S7 end card -->
+<div id="s7" class="layer" style="background:#F6F4F0;z-index:40">
+  <div id="ecName" class="abs c pf" style="top:800px;font-size:130px;font-weight:600">Haar<i>klartext</i></div>
+  <div id="ecLine" class="abs" style="top:990px;left:390px;height:4px;width:300px;background:#B08D57"></div>
+  <div id="ecSub" class="abs c" style="top:1040px;font-size:44px;font-weight:500">Folge für mehr Haarklartext</div>
+</div>
+
+<div id="subs"></div>
+<div id="grain"></div>
+</div>
+<script>
+const WORDS=__WORDS__;
+const $=id=>document.getElementById(id);
+const cl=(x,a=0,b=1)=>Math.min(b,Math.max(a,x));
+const seg=(t,a,b)=>cl((t-a)/(b-a));
+const eo=x=>1-Math.pow(1-x,3);
+const eb=x=>{const c1=1.70158,c3=c1+1;return 1+c3*Math.pow(x-1,3)+c1*Math.pow(x-1,2)};
+const ws=w=>WORDS.find(o=>o.w.toLowerCase().startsWith(w.toLowerCase()));
+function wt(i){return WORDS[i].s}
+// scene windows
+const S=[[0,3.62],[3.62,9.9],[9.9,15.95],[15.95,18.75],[18.75,27.4],[27.4,33.95],[33.95,35.75],[35.75,37.4]];
+const END=37.4;
+function vis(t,[a,b],fi=.25,fo=.2){return Math.min(seg(t,a,a+fi),1-seg(t,b-fo,b))}
+function setT(el,o,tr){const e=typeof el==='string'?$(el):el;e.style.opacity=o;if(tr!==undefined)e.style.transform=tr}
+function pop(t,a,d=.35){const p=seg(t,a,a+d);return {o:eo(p),s:0.6+0.4*eb(p)}}
+function draw(path,p){const L=path.getTotalLength();path.style.strokeDasharray=L;path.style.strokeDashoffset=L*(1-p)}
+// build leaves
+(function(){const g=$('leaves');let h='';for(let i=0;i<7;i++){const y=360-i*36, x=542+i*7*0.8; const side=i%2?1:-1;h+=`<path d="M${x} ${y} q ${side*50} -20 ${side*85} -55" />`}g.innerHTML=h;
+const f=$('fresh');let s='';for(let i=0;i<5;i++){const x=420+i*70;s+=`<path d="M${x} 150 c -20 -30 20 -50 0 -80 c -20 -30 20 -50 0 -80"/>`}f.innerHTML=s;
+const r=$('ruler');let q='';for(let i=0;i<=10;i++){const y=500-i*36;q+=`<line x1="600" y1="${y}" x2="${i%5?625:645}" y2="${y}"/>`}r.innerHTML=q;})();
+// subtitle groups
+const groups=[];(function(){let g=[];WORDS.forEach((w,i)=>{g.push(i);const end=/[.,:?!]$/.test(w.w);if(g.length>=3||end){groups.push(g);g=[]}});if(g.length)groups.push(g)})();
+function strands(t){
+ const inv=$('inv').style.opacity;
+ let h='';for(let k=0;k<3;k++){let d='';for(let x=-40;x<=1120;x+=40){const y=1700+k*36+Math.sin(x/180+t*0.9+k)*60+Math.sin(x/90-t*0.5)*18;d+=(x<0?'M':'L')+x+' '+y.toFixed(1)}
+ h+=`<path d="${d}" fill="none" stroke="#B08D57" stroke-opacity="${k?0.35:0.7}" stroke-width="${k?2.5:4}"/>`}
+ for(let k=0;k<2;k++){let d='';for(let x=-40;x<=1120;x+=40){const y=150+k*30+Math.sin(x/200-t*0.7+k*2)*40;d+=(x<0?'M':'L')+x+' '+y.toFixed(1)}
+ h+=`<path d="${d}" fill="none" stroke="#B08D57" stroke-opacity="${k?0.3:0.55}" stroke-width="${k?2:3}"/>`}
+ $('strands').innerHTML=h;
+}
+function render(t){
+ // inversion: Haken reveal 17.9 -> 20.9
+ const invO=Math.min(seg(t,17.95,18.15),1-seg(t,21.0,21.3));
+ $('inv').style.opacity=invO;
+ const dark=invO>0.5;
+ $('stage').style.color=dark?'#F6F4F0':'#0B0B0B';
+ strands(t);
+ $('grain').style.backgroundPosition=`${(t*977)%540}px ${(t*613)%960}px`;
+ // S0
+ const v0=vis(t,S[0],0.01,0.25);setT('s0',v0);
+ let p=pop(t,0.0,0.4);setT('h30',p.o,`scale(${p.s})`);
+ p=pop(t,0.45,0.35);setT('htage',p.o,`translateY(${(1-p.o)*40}px)`);
+ p=pop(t,0.82,0.45);setT('hros',p.o,`scale(${p.s})`);
+ p=pop(t,2.1,0.3);setT('hq',p.o,`translateY(${(1-p.o)*30}px)`);
+ const wk=seg(t,2.7,2.95);$('hwirk').style.transform=`scale(${1+0.25*Math.sin(Math.PI*wk)})`;$('hwirk').style.color=wk>0?'#B08D57':'';
+ draw($('sp0'),eo(seg(t,0.2,1.2)));$('leaves').querySelectorAll('path').forEach((e,i)=>draw(e,eo(seg(t,0.6+i*0.12,1.0+i*0.12))));
+ $('h30').style.transform+=` translateY(${-seg(t,1.0,3.6)*20}px)`;
+ // timeline
+ const tlv=Math.min(seg(t,3.62,3.9),1-seg(t,18.6,18.75));setT('tl',tlv*(dark?0:1));
+ const prog= t<9.9? eo(seg(t,3.7,4.2))*0 : t<15.95? eo(seg(t,9.9,10.5))*0.5 : 0.5+0.5*eo(seg(t,15.95,16.6));
+ $('tlfill').setAttribute('x2',160+700*prog);
+ [[3.7,'n0','l0'],[10.0,'n1','l1'],[16.07,'n2','l2']].forEach(([a,n,l])=>{const on=t>=a;$(n).setAttribute('fill',on?'#B08D57':'#F6F4F0');$(n).setAttribute('stroke',on?'#B08D57':'#0B0B0B');const pp=seg(t,a,a+0.3);$(n).setAttribute('r',14+10*Math.sin(Math.PI*pp));$(l).style.color=on?'#B08D57':'#0B0B0B'});
+ // S1
+ setT('s1',vis(t,S[1]));
+ p=pop(t,3.62,0.4);setT('s1big',p.o,`scale(${p.s})`);
+ draw($('headp'),eo(seg(t,3.9,5.0)));draw($('hairp'),eo(seg(t,4.4,5.4)));
+ $('fresh').querySelectorAll('path').forEach((e,i)=>{const ph=((t-5.4)*0.8+i*0.2)%1;e.style.opacity=t<5.4?0:Math.sin(Math.PI*ph);e.style.transform=`translateY(${-ph*60}px)`});
+ p=pop(t,5.8,0.35);setT('s1cap',p.o,`scale(${p.s})`);
+ // S2
+ setT('s2',vis(t,S[2]));
+ p=pop(t,9.9,0.4);setT('s2big',p.o,`scale(${p.s})`);
+ const g=eo(seg(t,10.6,15.2));$('shaft').setAttribute('y2',500-g*360);$('s2cnt').style.top=(650+500-g*360-40)+'px';
+ $('s2cnt').textContent='+'+(g*0.25).toFixed(2).replace('.',',')+' cm';setT('s2cnt',seg(t,10.6,10.9));
+ p=pop(t,14.5,0.4);setT('s2rate',p.o,`scale(${p.s})`);
+ // S3
+ setT('s3',vis(t,S[3],0.2,0.15));
+ p=pop(t,15.95,0.4);setT('s3big',p.o,`scale(${p.s})`);
+ p=pop(t,17.95,0.3);const sh=t>17.95&&t<18.4?Math.sin((t-17.95)*60)*10*(1-seg(t,17.95,18.4)):0;setT('s3hook',p.o,`scale(${p.s}) translateX(${sh}px)`);
+ $('s3big').style.opacity=Math.min(parseFloat($('s3big').style.opacity),1-seg(t,17.9,18.1));
+ // S4
+ setT('s4',vis(t,S[4],0.15,0.25));
+ const part1=1-seg(t,22.9,23.2);
+ p=pop(t,18.8,0.3);setT('s4lab',p.o*part1);
+ p=pop(t,20.3,0.4);setT('s4oel',p.o*part1,`scale(${p.s})`);
+ p=pop(t,21.6,0.3);setT('s4wasW',p.o*part1);
+ $('strike').setAttribute('x2',680*eo(seg(t,22.2,22.6)));
+ const cv=seg(t,23.1,23.4);setT('chart',cv);
+ const b3=eo(seg(t,24.6,25.4))*50, b6=eo(seg(t,26.6,27.2))*330;
+ $('bar3').style.top=(1230-b3)+'px';$('bar3').style.height=b3+'px';
+ $('bar6').style.top=(1230-b6)+'px';$('bar6').style.height=b6+'px';
+ setT('b3t',seg(t,25.4,25.7),`translateY(${-b3}px)`);$('b6t').style.top=(1230-b6-70)+'px';setT('b6t',seg(t,26.9,27.1));
+ // S5
+ setT('s5',vis(t,S[5]));
+ p=pop(t,28.3,0.35);setT('v1',p.o,`translateX(${(1-p.o)*-60}px)`);draw($('chk'),eo(seg(t,29.8,30.3)));
+ p=pop(t,31.45,0.35);setT('v2',p.o,`translateX(${(1-p.o)*-60}px)`);draw($('crs1'),eo(seg(t,33.2,33.45)));draw($('crs2'),eo(seg(t,33.45,33.7)));
+ // S6
+ setT('s6',vis(t,S[6],0.2,0.2));
+ draw($('bub'),eo(seg(t,33.95,34.7)));p=pop(t,34.1,0.35);setT('ctat',p.o,`scale(${p.s})`);
+ // S7
+ setT('s7',seg(t,35.75,36.0));
+ p=pop(t,35.85,0.4);setT('ecName',p.o,`scale(${p.s})`);
+ $('ecLine').style.transform=`scaleX(${eo(seg(t,36.1,36.6))})`;setT('ecSub',seg(t,36.3,36.6));
+ // subtitles
+ let html='';const sv=t<35.75;
+ for(const gr of groups){const a=WORDS[gr[0]].s-0.05, b=WORDS[gr[gr.length-1]].e+0.15;const nxt=groups[groups.indexOf(gr)+1];const bb=nxt?Math.min(b,WORDS[nxt[0]].s-0.05):b;
+  if(t>=a&&t<bb){html=gr.map(i=>`<span class="${t>=WORDS[i].s-0.03?'on':''}">${WORDS[i].w.replace(/[.,:]$/,'')}</span>`).join('');
+   // keep only the active word bold
+   const act=gr.filter(i=>t>=WORDS[i].s-0.03).pop();html=gr.map(i=>`<span class="${i===act?'on':''}">${WORDS[i].w.replace(/[.,:]$/,'')}</span>`).join('');break}}
+ $('subs').innerHTML=sv?html:'';
+}
+window.render=render;window.END=END;
+</script></body></html>
